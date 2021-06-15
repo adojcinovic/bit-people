@@ -21,11 +21,19 @@ const Users = ({ refresh, value }) => {
         )))
     }, [value])
 
+    const male = filtered.filter((e) => e.gender === 'male').length
+    const female = filtered.length - male
+
+
+
     return (
-        <div className='wrapper'>
-            {filtered.map((e) => <User data={e} />
-            )}
-        </div>
+        <>
+            <p>Male: {male} Female: {female}</p>
+            <div className='wrapper'>
+                {filtered.map((e) => <User data={e} />
+                )}
+            </div>
+        </>
     )
 }
 
