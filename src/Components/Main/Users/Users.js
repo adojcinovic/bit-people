@@ -3,7 +3,7 @@ import { getData } from '../api'
 import { useEffect, useState } from 'react'
 import { User } from './User'
 
-const Users = ({ refresh }) => {
+const Users = ({ refresh, value }) => {
 
     const [data, setData] = useState([])
     const [filtered, setFiltered] = useState([])
@@ -13,6 +13,13 @@ const Users = ({ refresh }) => {
             setFiltered(data)
         })
     }, [refresh])
+
+    useEffect(() => {
+        setFiltered(data.filter(e => (
+            e.name.first.toLowerCase().includes(value.toLowerCase()) ||
+            e.name.last.toLowerCase().includes(value.toLowerCase())
+        )))
+    }, [value])
 
     return (
         <div className='wrapper'>

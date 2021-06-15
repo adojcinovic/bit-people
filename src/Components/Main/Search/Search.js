@@ -1,8 +1,8 @@
 import './Search.css'
 
-const Search = () => {
+const Search = ({ val }) => {
     return (
-        <input placeholder='Search users' className="search"></input>
+        <input placeholder='Search users' className="search" onChange={(e) => { val(e.target.value) }}></input>
     )
 }
 

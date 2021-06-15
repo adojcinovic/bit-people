@@ -8,12 +8,18 @@ import './App.css';
 function App() {
   const [shouldRefresh, setShouldRefresh] = useState();
   const [value, setValue] = useState('');
+  console.log(value);
+
+  const inputValue = (arg) => {
+    setValue(arg)
+  }
+
 
   return (
     <div className="App">
-      <Header refresh={setShouldRefresh} />
-      <Search />
-      <Users refresh={shouldRefresh} />
+      <Header refresh={setShouldRefresh} val={inputValue} />
+      <Search val={inputValue} />
+      <Users refresh={shouldRefresh} value={value} />
     </div>
   );
 }
