@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { Header } from './Components/Header/Header'
+import { Search } from './Components/Main/Search/Search'
+import { Users } from './Components/Main/Users/Users'
+import { useState } from 'react'
+
 import './App.css';
 
 function App() {
+  const [shouldRefresh, setShouldRefresh] = useState();
+  const [value, setValue] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header refresh={setShouldRefresh} />
+      <Search />
+      <Users refresh={shouldRefresh} />
     </div>
   );
 }
