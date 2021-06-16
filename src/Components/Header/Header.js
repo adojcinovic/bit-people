@@ -1,7 +1,7 @@
 import './Header.css'
 
 
-const Header = ({ refresh }) => {
+const Header = ({ refresh, changeLayout }) => {
     return (
         <>
             <div className="header">
@@ -9,7 +9,7 @@ const Header = ({ refresh }) => {
                 <div className='buttons'>
                     <button onClick={refresh}>Refresh</button>
                     {/* <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Refresh_icon.png"></img> */}
-                    <button>Change view</button>
+                    <button onClick={changeLayout}>Change view</button>
                 </div>
             </div>
 

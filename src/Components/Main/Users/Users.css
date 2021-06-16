@@ -1,6 +1,5 @@
 .wrapper {
     margin-top: 30px;
-
 }
 
 .card {
@@ -35,4 +34,39 @@
 
 .male {
     background-color: white;
+}
+
+
+.wrapper-grid {
+    width: 60%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+}
+
+.card-grid {
+    margin-left: 20px;
+    width: 30%;
+    height: 200px;
+    margin: 1%;
+    border: 1px solid gray;
+    box-shadow:  5px 10px 5px rgb(143, 142, 142);
+
+  
+}
+
+.card-grid:hover {
+    box-shadow: inset 0 0 15px #000000;
+}
+  
+
+.card-grid > img {
+    margin-top: 15px;
+    width: 40%;
+    height: 120px;
+    border-radius: 50%;
+   
 }

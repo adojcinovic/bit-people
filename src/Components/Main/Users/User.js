@@ -2,15 +2,23 @@
 
 
 
-const User = ({ data }) => {
-    const date = new Date(data.dob.date)
-    console.log(date.getFullYear());
-    return (<div className={data.gender === 'female' ? 'card female' : 'card male'}>
-        <img alt='' src={data.picture.thumbnail}></img>
+const User = ({ data, grid }) => {
+    const date = new Date(data.dob.date);
+    const gridClass = grid ? 'card-grid' : 'card';
+    const genderClass = data.gender === 'female' ? 'female' : 'male';
+
+
+    const getMail = () => {
+        const bla = data.email.split("");
+        bla.splice(3, 5, "...");
+        return bla.join('')
+    }
+    return (<div className={`${gridClass} ${genderClass}`} >
+        <img alt='' src={data.picture.large}></img>
         <div className="style">
             <p>{data.name.first} {data.name.last}</p>
-            <p>{data.email}</p>
-            <p>{date.getDay()}.{date.getMonth()}.{date.getFullYear()}</p>
+            <p>{getMail()}</p>
+            <p>{date.getDay() + 1}.{date.getMonth() + 1}.{date.getFullYear()}</p>
         </div>
     </div>)
 }

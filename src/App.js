@@ -8,7 +8,8 @@ import './App.css';
 function App() {
   const [shouldRefresh, setShouldRefresh] = useState();
   const [value, setValue] = useState('');
-  console.log(value);
+  const [grid, setGrid] = useState(false);
+
 
   const inputValue = (arg) => {
     setValue(arg)
@@ -17,9 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <Header refresh={setShouldRefresh} val={inputValue} />
+      <Header refresh={setShouldRefresh} val={inputValue} changeLayout={() => setGrid(!grid)} />
       <Search val={inputValue} />
-      <Users refresh={shouldRefresh} value={value} />
+      <Users refresh={shouldRefresh} value={value} toGrid={grid} />
     </div>
   );
 }
